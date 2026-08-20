@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This webpage is for Crop Disease Detection">
+    <meta name="keywords" content="Detection, Crop disease">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Crop Disease Detection</title>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <h1>Crop<span>Care</span></h1>
+            <small>Crop Disease Detection</small>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="card">
+            <div class="left">
+                <div id="dropzone" class="dropzone">
+                    <label for="imgUpload" class="drop-label">Click or drop image here</label>
+                    <input type="file" name="file" id="imgUpload" accept="image/*" aria-label="Choose an image to analyze">
+                    <img alt="Preview of uploaded image" id="uploadedImg">
+                </div>
+                <button type="button" id="btn" disabled class="primary">Upload & Predict</button>
+            </div>
+
+            <aside class="right">
+                <div id="spinner" class="spinner" aria-hidden="true" style="display:none"></div>
+                <div id="results" class="results"></div>
+            </aside>
+        </section>
+        <p class="attribution">Tip: Use a clear photo of the affected leaf for best results.</p>
+    </main>
+    <script src="script.js">  </script>
+</body>
+
+</html>
