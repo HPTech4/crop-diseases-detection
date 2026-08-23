@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Scan - CropCare</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/auth.css" />
+  <link rel="stylesheet" href="../css/upload.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 21C12 21 4 17 4 9.5C4 5.9 7 3 10.5 3C11.6 3 12.6 3.4 13.4 4.1C13.9 3.4 14.7 3 15.5 3C18 3 20 5 20 7.5C20 15 12 21 12 21Z" fill="#2F5233"/>
+          <path d="M12 21C12 21 12 13 12 9" stroke="#FAF6EC" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+        <span>CropCare</span>
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="upload.html" class="active">Upload</a>
+        <a href="history.html">History</a>
+        <a href="collections.html">Collections</a>
+      </div>
+      <div class="nav-right">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M12 2.5V5M12 19V21.5M4.2 4.2L6 6M18 18L19.8 19.8M2.5 12H5M19 12H21.5M4.2 19.8L6 18M18 6L19.8 4.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20 14.5C18.9 15 17.7 15.3 16.5 15.3C11.8 15.3 8 11.5 8 6.8C8 5.6 8.3 4.4 8.8 3.3C5.4 4.4 3 7.6 3 11.4C3 16.1 6.9 20 11.6 20C15.3 20 18.5 17.7 19.7 14.4C19.8 14.4 19.9 14.5 20 14.5Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <section class="welcome-section">
+      <p class="page-eyebrow">New scan</p>
+      <h1>Diagnose a leaf</h1>
+      <p>Upload a clear, close photo of the affected leaf — CropCare reads it for disease markers.</p>
+    </section>
+
+    <div class="upload-grid">
+      <!-- Sample panel -->
+      <div class="specimen upload-specimen">
+        <div class="specimen-head">
+          <span>Sample</span>
+          <span id="readoutStatus">Awaiting sample</span>
+        </div>
+
+        <div class="dropzone" id="dropzone">
+          <input type="file" id="imgUpload" accept="image/*" hidden />
+          <img id="uploadedImg" alt="Uploaded leaf preview" style="display:none" />
+
+          <label for="imgUpload" class="drop-empty" id="dropEmpty">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 16V4M12 4L7 9M12 4L17 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 16V18C4 19.1 4.9 20 6 20H18C19.1 20 20 19.1 20 18V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <p>Drag a photo here, or <span class="drop-browse">browse</span></p>
+            <p class="muted">JPG or PNG · one leaf per photo</p>
+          </label>
+
+          <div class="spinner" id="spinner" aria-hidden="true">
+            <span class="spinner-ring"></span>
+            <p>Analyzing…</p>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block" id="btn" disabled>Analyze sample</button>
+      </div>
+
+      <!-- Results panel -->
+      <div class="results-card">
+        <div class="card-head">
+          <h3>Diagnosis</h3>
+          <span class="card-head-tag">Plant.id</span>
+        </div>
+        <div id="results">
+          <div class="results-empty">
+            <p>No sample analyzed yet.</p>
+            <p class="muted">Results — species match, health status, and treatment notes — will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <span class="footer-mark">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 21C12 21 4 17 4 9.5C4 5.9 7 3 10.5 3C11.6 3 12.6 3.4 13.4 4.1C13.9 3.4 14.7 3 15.5 3C18 3 20 5 20 7.5C20 15 12 21 12 21Z" fill="#7C8C5D"/>
+      </svg>
+      CropCare
+    </span>
+    <span>© 2026 CropCare — AI plant disease detection</span>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="../js/utils.js"></script>
+  <script src="../js/upload.js"></script>
+</body>
+</html>

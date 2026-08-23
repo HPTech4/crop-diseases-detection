@@ -1,7 +1,6 @@
-// Vercel serverless entry point - Supabase version
-const express = require('express');
-const cors = require('cors');
-require('dotenv').config();
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 
@@ -10,30 +9,39 @@ app.use(cors());
 app.use(express.json());
 
 // Import routes
-const authRoutes = require('../routes/auth');
-const scanRoutes = require('../routes/scans');
-const userRoutes = require('../routes/users');
+const authRoutes = require("../routes/auth");
+const scanRoutes = require("../routes/scans");
+const userRoutes = require("../routes/users");
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/scans', scanRoutes);
-app.use('/api/users', userRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/scans", scanRoutes);
+app.use("/api/users", userRoutes);
 
 // Health check
-app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'ok', 
-    message: 'CropCare API with Supabase',
-    environment: process.env.NODE_ENV || 'development'
+app.get("/api/health", (req, res) => {
+  res.json({
+    status: "ok",
+    message: "CropCare API with Supabase",
+    environment: process.env.NODE_ENV || "development",
+    timestamp: new Date().toISOString(),
   });
 });
 
-// Error handling
+// Error handling middleware
 app.use((err, req, res, next) => {
-  console.error('Error:', err);
+  console.error("Error:", err);
   res.status(err.status || 500).json({
     success: false,
-    message: err.message || 'Internal server error'
+    message: err.message || "Internal server error",
+  });
+});
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    message: `Route ${req.method} ${req.path} not found`,
   });
 });
 

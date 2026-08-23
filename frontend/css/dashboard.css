@@ -1,0 +1,136 @@
+/* ============================================
+   CropCare — Dashboard layout
+   Page-level spacing and grids. Component-level
+   styling (cards, nav) lives in components.css.
+   ============================================ */
+
+.main-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 36px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ---- Welcome ---- */
+
+.welcome-section {
+  padding-bottom: 4px;
+}
+
+.page-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 10px;
+}
+
+.welcome-section h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+
+.welcome-section p {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+}
+
+/* ---- Stats ---- */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* ---- Charts row ---- */
+
+.charts-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.chart-card canvas {
+  max-height: 220px;
+}
+
+/* ---- Recent scans ---- */
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--border-strong);
+}
+
+.section-header h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.view-all {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--canopy);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.view-all:hover {
+  text-decoration: underline;
+}
+
+.scans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+/* ---- Quick actions ---- */
+
+.quick-actions h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 17px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--border-strong);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 960px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .main-container {
+    padding: 24px 16px 48px;
+    gap: 22px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-section h1 {
+    font-size: 24px;
+  }
+}
