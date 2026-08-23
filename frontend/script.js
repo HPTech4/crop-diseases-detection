@@ -88,8 +88,8 @@ btn.addEventListener("click", async () => {
   const formData = new FormData();
   formData.append("images", fileInput.files[0]);
   formData.append("health", "true");
-
-  const PROXY_ORIGIN = "http://localhost:3000";
+  
+  const PROXY_ORIGIN = "https://crop-care-be.vercel.app";
   let proxyPath;
   if (window.location.origin === PROXY_ORIGIN || window.location.port === "3000") {
     proxyPath = "/api/health"; // same origin - use relative path
