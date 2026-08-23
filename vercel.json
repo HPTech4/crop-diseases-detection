@@ -12,8 +12,36 @@
       "dest": "backend/api/index.js"
     },
     {
+      "src": "/$",
+      "dest": "/frontend/pages/index.html"
+    },
+    {
+      "src": "/(login|register|dashboard|upload|forget-password|reset-password)",
+      "dest": "/frontend/pages/$1.html"
+    },
+    {
+      "src": "/(login|register|dashboard|upload|forget-password|reset-password)\\.html",
+      "dest": "/frontend/pages/$1.html"
+    },
+    {
+      "src": "/pages/(.*)",
+      "dest": "/frontend/pages/$1"
+    },
+    {
+      "src": "/css/(.*)",
+      "dest": "/frontend/css/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/frontend/js/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/frontend/assets/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "backend/api/index.js"
+      "dest": "/frontend/$1"
     }
   ]
 }

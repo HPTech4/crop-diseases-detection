@@ -2,8 +2,17 @@ const express = require("express");
 const router = express.Router();
 const { supabase, supabaseAdmin } = require("../config/supabase");
 
+// @route   GET /api/auth/register
+// @desc    Human-friendly response when endpoint is opened in browser
+router.get("/register", (req, res) => {
+  res.status(405).json({
+    success: false,
+    message:
+      "Use POST /api/auth/register with JSON body: { name, email, password }",
+  });
+});
+
 // @route   POST /api/auth/register
-// @desc    Register a new user
 router.post("/register", async (req, res) => {
   try {
     const { email, password, name } = req.body;

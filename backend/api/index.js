@@ -11,12 +11,10 @@ app.use(express.json());
 // Import routes
 const authRoutes = require("../routes/auth");
 const scanRoutes = require("../routes/scans");
-const userRoutes = require("../routes/users");
 
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/scans", scanRoutes);
-app.use("/api/users", userRoutes);
 
 // Health check
 app.get("/api/health", (req, res) => {
