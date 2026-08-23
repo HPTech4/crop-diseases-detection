@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CropCare - AI Plant Disease Detection</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+      justify-content: center;
+    }
+    .hero-buttons .btn {
+      padding: 14px 32px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🌱 CropCare</h1>
+      <p>AI-Powered Plant Disease Detection</p>
+      <div class="hero-buttons">
+        <a href="login.html" class="btn btn-primary">Sign In</a>
+        <a href="register.html" class="btn btn-secondary">Get Started</a>
+      </div>
+    </header>
+
+    <section class="features">
+      <h2>How It Works</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span>📸</span>
+          <h3>Upload Photo</h3>
+          <p>Take a photo or upload an image of your plant</p>
+        </div>
+        <div class="feature-card">
+          <span>🤖</span>
+          <h3>AI Analysis</h3>
+          <p>Our AI analyzes the image for diseases</p>
+        </div>
+        <div class="feature-card">
+          <span>💊</span>
+          <h3>Get Treatment</h3>
+          <p>Receive treatment recommendations</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>🌱 CropCare &copy; 2024 - AI Plant Disease Detection</p>
+    </footer>
+  </div>
+
+  <!-- Check if already logged in -->
+  <script>
+    const token = localStorage.getItem('token');
+    if (token) {
+      // User is logged in, redirect to dashboard
+      window.location.href = 'dashboard.html';
+    }
+  </script>
+</body>
+</html>

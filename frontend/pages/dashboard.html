@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - CropCare</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <span>🌱</span>
+        <span>CropCare</span>
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="upload.html">Upload</a>
+        <a href="history.html">History</a>
+        <a href="collections.html">Collections</a>
+      </div>
+      <div class="nav-right">
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+        <div class="notification-bell" id="notificationBell">
+          🔔
+          <span class="badge" id="notificationBadge">0</span>
+        </div>
+        <div class="user-menu">
+          <img src="../assets/images/default-avatar.png" alt="Avatar" class="user-avatar" id="userAvatar" />
+          <span class="user-name" id="userName">User</span>
+          <button class="logout-btn" id="logoutBtn">🚪</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+      <h1>Welcome back, <span id="welcomeName">User</span>! 👋</h1>
+      <p>Here's what's happening with your plants today</p>
+    </section>
+
+    <!-- Stats Grid -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📊</div>
+        <div class="stat-content">
+          <h3>Total Scans</h3>
+          <p class="stat-number" id="totalScans">0</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-content">
+          <h3>Healthy Plants</h3>
+          <p class="stat-number" id="healthyScans">0</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⚠️</div>
+        <div class="stat-content">
+          <h3>Diseased Plants</h3>
+          <p class="stat-number" id="diseasedScans">0</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📈</div>
+        <div class="stat-content">
+          <h3>Success Rate</h3>
+          <p class="stat-number" id="successRate">0%</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Charts Row -->
+    <section class="charts-row">
+      <div class="chart-card">
+        <h3>📈 Weekly Activity</h3>
+        <canvas id="activityChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>🦠 Common Diseases</h3>
+        <div id="commonDiseases" class="disease-list">
+          <p class="no-data">No data yet</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Scans -->
+    <section class="recent-scans">
+      <div class="section-header">
+        <h3>🕐 Recent Scans</h3>
+        <a href="history.html" class="view-all">View All →</a>
+      </div>
+      <div id="recentScansContainer" class="scans-grid">
+        <p class="no-data">No scans yet. <a href="upload.html">Upload your first image!</a></p>
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+      <h3>⚡ Quick Actions</h3>
+      <div class="action-grid">
+        <a href="upload.html" class="action-card">
+          <span>📸</span>
+          <p>New Scan</p>
+        </a>
+        <a href="history.html" class="action-card">
+          <span>📋</span>
+          <p>View History</p>
+        </a>
+        <a href="collections.html" class="action-card">
+          <span>📁</span>
+          <p>Collections</p>
+        </a>
+        <a href="profile.html" class="action-card">
+          <span>👤</span>
+          <p>My Profile</p>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>🌱 CropCare &copy; 2024 - AI Plant Disease Detection</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Check authentication
+      const token = localStorage.getItem('token');
+      if (!token) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // Load dashboard
+      const dashboard = new Dashboard();
+      await dashboard.load();
+    });
+  </script>
+</body>
+</html>
