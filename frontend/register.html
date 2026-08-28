@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register - CropCare</title>
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/auth.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/auth.css" />
 </head>
 <body>
   <div class="auth-shell">
@@ -100,7 +100,7 @@
       <div class="auth-footer">
         <p>
           Already have an account?
-          <a href="../pages/login.html">Sign in</a>
+          <a href="./login.html">Sign in</a>
         </p>
       </div>
 
@@ -122,7 +122,7 @@
       // Check if already logged in
       const token = localStorage.getItem('token');
       if (token) {
-        window.location.href = 'dashboard.html';
+        window.location.href = './dashboard.html';
         return;
       }
 
@@ -215,7 +215,7 @@
 
             // Auto login after registration
             setTimeout(() => {
-              window.location.href = '../pages/login.html';
+              window.location.href = './login.html';
             }, 1500);
           } else {
             showToast(data.message || 'Registration failed', 'error');

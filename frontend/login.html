@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign In - CropCare</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/auth.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
   </head>
   <body>
     <div class="auth-shell">
@@ -118,7 +118,7 @@
               <input type="checkbox" id="rememberMe" />
               <span>Remember me</span>
             </label>
-            <a href="../pages/forget-password.html" class="forgot-link"
+            <a href="./forget-password.html" class="forgot-link"
               >Forgot password?</a
             >
           </div>
@@ -139,7 +139,7 @@
         <div class="auth-footer">
           <p>
             Don't have an account?
-            <a href="register.html">Sign up now</a>
+            <a href="./register.html">Sign up now</a>
           </p>
         </div>
 
@@ -160,7 +160,7 @@
         // Check if already logged in
         const token = localStorage.getItem("token");
         if (token) {
-          window.location.href = "dashboard.html";
+          window.location.href = "./dashboard.html";
           return;
         }
 
@@ -219,7 +219,7 @@
 
               // Redirect to dashboard
               setTimeout(() => {
-                window.location.href = "dashboard.html";
+                window.location.href = "./dashboard.html";
               }, 1000);
             } else {
               showToast(data.message || "Login failed", "error");
