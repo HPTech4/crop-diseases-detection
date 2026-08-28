@@ -18,15 +18,11 @@
     },
     {
       "src": "/(login|register|dashboard|upload|forget-password|reset-password)",
-      "dest": "/frontend/pages/$1.html"
+      "dest": "/frontend/$1.html"
     },
     {
       "src": "/(login|register|dashboard|upload|forget-password|reset-password)\\.html",
-      "dest": "/frontend/pages/$1.html"
-    },
-    {
-      "src": "/pages/(.*)",
-      "dest": "/frontend/pages/$1"
+      "dest": "/frontend/pa$1.html"
     },
     {
       "src": "/css/(.*)",
