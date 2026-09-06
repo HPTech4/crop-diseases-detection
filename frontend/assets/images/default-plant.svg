@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Plant scan placeholder">
+  <rect width="640" height="480" fill="#EDE6D3"/>
+  <path d="M318 390V206M318 270C255 225 196 220 137 240M318 300C380 253 445 253 506 270" fill="none" stroke="#2F5233" stroke-width="14" stroke-linecap="round"/>
+  <path d="M310 207C253 142 178 130 104 158C126 232 202 268 310 207ZM326 207C382 142 457 130 536 158C509 232 433 268 326 207Z" fill="#7C8C5D" stroke="#2F5233" stroke-width="8"/>
+  <circle cx="318" cy="390" r="12" fill="#B5502E"/>
+</svg>

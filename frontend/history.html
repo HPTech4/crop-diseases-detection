@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scan History - CropCare</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/dashboard.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/workspace.css" />
+</head>
+<body>
+  <nav class="navbar"><div class="nav-container">
+    <a class="nav-brand" href="./dashboard.html"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21C12 21 4 17 4 9.5C4 5.9 7 3 10.5 3C11.6 3 12.6 3.4 13.4 4.1C13.9 3.4 14.7 3 15.5 3C18 3 20 5 20 7.5C20 15 12 21 12 21Z" fill="#2F5233"/><path d="M12 21C12 21 12 13 12 9" stroke="#FAF6EC" stroke-width="1.1" stroke-linecap="round"/></svg><span>CropCare</span></a>
+    <div class="nav-links"><a href="./dashboard.html">Dashboard</a><a href="./upload.html">Upload</a><a href="./history.html" class="active">History</a><a href="./collections.html">Collections</a></div>
+    <div class="nav-right"><button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode"><span aria-hidden="true">◐</span></button><div class="user-menu"><span class="user-name" id="userName">User</span><button class="logout-btn" id="logoutBtn" aria-label="Sign out">↗</button></div></div>
+  </div></nav>
+
+  <main class="main-container">
+    <section class="welcome-section"><p class="page-eyebrow">Field records</p><h1>Scan history</h1><p>Review diagnoses, revisit field notes, and keep your growing decisions close.</p></section>
+    <div class="workspace-grid">
+      <section class="workspace-card">
+        <div class="card-head"><h3>All scans</h3><span class="card-head-tag" id="scanCount">Loading</span></div>
+        <div class="workspace-toolbar"><input id="scanSearch" type="search" placeholder="Search plant or disease" aria-label="Search scans" /><select id="statusFilter" aria-label="Filter scan status"><option value="all">All statuses</option><option value="healthy">Healthy</option><option value="diseased">Diseased</option></select></div>
+        <div id="historyList" class="workspace-list"><div class="workspace-empty"><h2>Loading records</h2><p>Fetching your latest scans.</p></div></div>
+        <div id="pagination" class="pagination"></div>
+      </section>
+      <aside class="workspace-card"><div class="card-head"><h3>At a glance</h3><span class="card-head-tag">Your field</span></div><div class="workspace-stat"><span class="workspace-stat-label">Total scans</span><strong class="workspace-stat-value" id="totalCount">—</strong></div><div class="workspace-stat"><span class="workspace-stat-label">Healthy</span><strong class="workspace-stat-value" id="healthyCount">—</strong></div><div class="workspace-stat"><span class="workspace-stat-label">Needs attention</span><strong class="workspace-stat-value" id="diseasedCount">—</strong></div><a href="./upload.html" class="btn btn-primary btn-block" style="margin-top:18px;text-align:center">New scan</a></aside>
+    </div>
+  </main>
+  <footer class="footer"><span class="footer-mark">CropCare</span><span>© 2026 CropCare — AI plant disease detection</span></footer>
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="./js/utils.js"></script><script src="./js/history.js"></script>
+</body>
+</html>

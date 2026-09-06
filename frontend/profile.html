@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - CropCare</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/workspace.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a class="nav-brand" href="./dashboard.html"
+          ><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M12 21C12 21 4 17 4 9.5C4 5.9 7 3 10.5 3C11.6 3 12.6 3.4 13.4 3C13.9 3.4 14.7 3 15.5 3C18 3 20 5 20 7.5C20 15 12 21 12 21Z"
+              fill="#2F5233"
+            />
+            <path
+              d="M12 21C12 21 12 13 12 9"
+              stroke="#FAF6EC"
+              stroke-width="1.1"
+              stroke-linecap="round"
+            /></svg
+          ><span>CropCare</span></a
+        >
+        <div class="nav-links">
+          <a href="./dashboard.html">Dashboard</a
+          ><a href="./upload.html">Upload</a><a href="./history.html">History</a
+          ><a href="./collections.html">Collections</a>
+        </div>
+        <div class="nav-right">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle dark mode"
+          >
+            <span aria-hidden="true">◐</span>
+          </button>
+          <div class="user-menu">
+            <span class="user-name" id="userName">User</span
+            ><button class="logout-btn" id="logoutBtn" aria-label="Sign out">
+              ↗
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="main-container">
+      <section class="welcome-section">
+        <p class="page-eyebrow">Account settings</p>
+        <h1>Your profile</h1>
+        <p>Keep your account details and workspace preferences in view.</p>
+      </section>
+      <div class="profile-layout">
+        <aside class="workspace-card profile-identity">
+          <div class="profile-avatar" id="profileAvatar">U</div>
+          <h2 id="profileName">User</h2>
+          <p class="workspace-muted" id="profileEmail">—</p>
+          <button
+            id="profileLogout"
+            class="workspace-button workspace-button--danger"
+            type="button"
+            style="margin-top: 18px"
+          >
+            Sign out
+          </button>
+        </aside>
+        <section class="workspace-card">
+          <div class="card-head">
+            <h3>Account details</h3>
+            <span class="card-head-tag">Read only</span>
+          </div>
+          <form class="profile-form" id="profileForm">
+            <label
+              >Display name<input
+                id="displayName"
+                type="text"
+                readonly /></label
+            ><label
+              >Email address<input id="emailAddress" type="email" readonly
+            /></label>
+            <p class="workspace-muted">
+              Account identity is managed by Supabase Authentication. Profile
+              editing can be enabled when a profile update endpoint is added.
+            </p>
+          </form>
+          <div class="card-head" style="margin-top: 28px">
+            <h3>Workspace preferences</h3>
+            <span class="card-head-tag">This device</span>
+          </div>
+          <div class="preference-row">
+            <div>
+              <strong>Appearance</strong
+              ><span>Choose how CropCare looks on this device.</span>
+            </div>
+            <select id="themeSelect" aria-label="Appearance">
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </div>
+          <div class="preference-row">
+            <div>
+              <strong>Saved collections</strong
+              ><span>Saved scans are kept locally in this browser.</span>
+            </div>
+            <a href="./collections.html" class="workspace-button"
+              >Open collections</a
+            >
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <span class="footer-mark">CropCare</span
+      ><span>© 2026 CropCare — AI plant disease detection</span>
+    </footer>
+    <div id="toastContainer" class="toast-container"></div>
+    <script src="./js/utils.js"></script>
+    <script src="./js/profile.js"></script>
+  </body>
+</html>

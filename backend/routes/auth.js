@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { supabase, supabaseAdmin } = require("../config/supabase");
+const database = supabaseAdmin || supabase;
 
 // @route   GET /api/auth/register
 // @desc    Human-friendly response when endpoint is opened in browser
@@ -61,7 +62,7 @@ router.post("/register", async (req, res) => {
 
     // Create user profile in our users table
     if (data.user) {
-      const { error: profileError } = await supabase.from("users").insert([
+      const { error: profileError } = await database.from("users").insert([
         {
           id: data.user.id,
           email: data.user.email,
@@ -131,7 +132,7 @@ router.post("/login", async (req, res) => {
     }
 
     // Get user profile
-    const { data: userData, error: userError } = await supabase
+    const { data: userData, error: userError } = await database
       .from("users")
       .select("*")
       .eq("id", data.user.id)
@@ -141,7 +142,7 @@ router.post("/login", async (req, res) => {
       console.error("User fetch error:", userError);
       // User exists in auth but not in our table - create profile
       if (userError.code === "PGRST116") {
-        const { error: createError } = await supabase.from("users").insert([
+        const { error: createError } = await database.from("users").insert([
           {
             id: data.user.id,
             email: data.user.email,
@@ -231,7 +232,7 @@ router.get("/me", async (req, res) => {
     }
 
     // Get user profile
-    const { data: userData, error: userError } = await supabase
+    const { data: userData, error: userError } = await database
       .from("users")
       .select("*")
       .eq("id", user.id)

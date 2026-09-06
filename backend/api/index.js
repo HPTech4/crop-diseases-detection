@@ -31,10 +31,12 @@ app.use(express.json());
 // Import routes
 const authRoutes = require("../routes/auth");
 const scanRoutes = require("../routes/scans");
+const collectionRoutes = require("../routes/collections");
 
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/scans", scanRoutes);
+app.use("/api/collections", collectionRoutes);
 
 // Health check
 app.get("/api/health", (req, res) => {

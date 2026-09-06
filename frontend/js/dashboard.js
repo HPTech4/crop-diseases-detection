@@ -1,6 +1,3 @@
-import auth from "./auth.js";
-import { API_URL, showToast, formatDate } from "./utils.js";
-
 class Dashboard {
   constructor() {
     this.user = auth.getUser();
@@ -95,7 +92,7 @@ class Dashboard {
         .map(
           (scan) => `
         <div class="scan-card">
-          <img src="${scan.image_url || "../assets/images/default-plant.jpg"}" alt="${scan.plant_name || "Plant"}" />
+          <img src="${scan.image_url || "./assets/images/default-plant.svg"}" alt="${scan.plant_name || "Plant"}" />
           <div class="scan-info">
             <h4>${scan.plant_name || "Unknown Plant"}</h4>
             <span class="status ${scan.health_status === "healthy" ? "healthy" : "diseased"}">
@@ -209,4 +206,4 @@ class Dashboard {
   }
 }
 
-export default Dashboard;
+window.Dashboard = Dashboard;
